@@ -10,14 +10,14 @@ Our task will be to separately identify and outline various players on a field
     - [ ] Separate relevant frames of the video
 - [ ] Separate video into frames which are desired and those which aren't
     - [ ] Planned Classes of frames
-        - [ ]Run up begin
+        - [ ] Run up begin
         - [ ] Run up end
         - [ ] Shot begin
         - [ ] Shot end
         - [ ] Other
 
 ## Usage
-1. Drop your desired video file into ````res/media```` folder. Rename the video to vid.mp4
+1. Drop your desired video file into ````res/media```` folder (create if directory not present). Rename the video to vid.mp4
 2. Start a http-server in the current directory (i.e. the directory where this readme is located)
 3. Navigate to the localhost adress pointed by the http server from your web browser, (firefox recommended)
 4. Load Model using the Load Model button
