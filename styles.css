@@ -1,3 +1,4 @@
+/*
 @font-face {
     src: url('res/fonts/Poppins/Poppins-Regular.ttf');
     font-family: 'Poppins';
@@ -8,6 +9,10 @@
     font-family: 'Poppins';
     font-weight: bold;
 }
+*/
+
+/* Poppins font via google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 * {
     margin: 0;
@@ -15,11 +20,12 @@
 }
 
 body {
-    font-family: 'Poppins' sans-serif;
+    font-family: Poppins;
+    font-weight: 400;
 }
 
 h1 {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 3rem;
     background-color: orange;
     color: white;

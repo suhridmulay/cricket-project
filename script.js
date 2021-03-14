@@ -28,23 +28,28 @@ async function makePredictions() {
     let predictions = []
     predictions = await model.detect(video);
     if (predictions.length > 0) {
-      // Erase all earlier preds
       overlay.innerHTML = "";
     }
 
     console.log(predictions);
+    // Filter out all persons
+    let people = predictions.filter(pred => pred.class == "person");
+    // Filter only vertical bounding boxes
+    people = people.filter(person => person.bbox[3] > person.bbox[2]);
+    console.log(people);
 
-    for (let p = 0; p < predictions.length; p++) {
+    // Draw outline for all people
+    for (let p = 0; p < people.length; p++) {
       const highlight = document.createElement('div');
-      highlight.innerHTML = predictions[p].class;
+      highlight.innerHTML = people[p].class;
       highlight.setAttribute('class', 'highlight');
-      highlight.style = "left: " + predictions[p].bbox[0] + "px;"
-                      + "top: " + predictions[p].bbox[1] + "px;"
-                      + "width: " + predictions[p].bbox[2] + "px;"
-                      + "height: " + predictions[p].bbox[3] + "px;";
+      highlight.style = "left: " + people[p].bbox[0] + "px;"
+                      + "top: " + people[p].bbox[1] + "px;"
+                      + "width: " + people[p].bbox[2] + "px;"
+                      + "height: " + people[p].bbox[3] + "px;";
       overlay.appendChild(highlight);
 
-      pageConsole.innerHTML += '<p>' + 'Detected: ' + predictions[p].class + '</p>';
+      pageConsole.innerHTML += '<p>' + 'Detected: ' + people[p].class + '</p>';
     }
 
     window.requestAnimationFrame(makePredictions);

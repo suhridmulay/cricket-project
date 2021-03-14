@@ -7,7 +7,7 @@ Our task will be to separately identify and outline various players on a field
 - [x] Ability to identify players in a field
 - [ ] Ability to separate different classes of players
     - [x] Separate player classes via bounding boxes
-    - [x] Separate and Classify individual frames as bowlers' or batsme'sn
+    - [x] Separate and Classify individual frames as bowlers' or batsmen's
     - [ ] Separate relevant frames of the video
 - [ ] Separate video into frames which are desired and those which aren't
     - [ ] Planned Classes of frames
