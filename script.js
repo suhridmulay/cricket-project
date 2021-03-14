@@ -1,5 +1,9 @@
+const fileIn = document.querySelector('input');
+
 const overlay = document.querySelector('.overlay');
 const video = document.querySelector('video');
+
+const vidtit = document.querySelector('.video-container h2');
 
 const modelLoader = document.querySelector('#modelLoad');
 const detStart = document.querySelector('#detStart');
@@ -62,3 +66,13 @@ detStart.addEventListener("click", () => {
 	console.log('detStart button pressed');
 	makePredictions();
 });
+
+// Support to play any local file
+fileIn.addEventListener("change", (e) => {
+  console.log(e);
+  let tgtvid = fileIn.files[0];
+  let fileURL = URL.createObjectURL(tgtvid);
+  vidtit.innerHTML = tgtvid.name;
+  console.log("Playing: " + tgtvid.name);
+  video.src = fileURL;
+})
